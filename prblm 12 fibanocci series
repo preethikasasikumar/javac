@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of Fibonacci numbers to generate: ");
+        int num = scanner.nextInt();
+        scanner.close();
+
+        int first = 0, second = 1;
+        
+        System.out.println(first);
+        if (num > 1) {
+            System.out.println(second);
+        }
+        
+        for (int i = 2; i < num; i++) {
+            int next = first + second;
+            System.out.println(next);
+            first = second;
+            second = next;
+        }
+    }
+}
