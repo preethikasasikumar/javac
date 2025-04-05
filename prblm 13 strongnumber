@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class strongnumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        int sum = 0, temp = num;
+        while (temp > 0) {
+            int fact = 1, digit = temp % 10;
+            for (int i = 1; i <= digit; i++) fact *= i;
+            sum += fact;
+            temp /= 10;
+        }
+        System.out.println(sum == num);
+        scanner.close();
+    }
+}
