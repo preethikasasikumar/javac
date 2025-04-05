@@ -1,0 +1,248 @@
+public class Factorial {
+    public static int add(int a, int b) {
+        int sum = 0;
+        for (int i = 0; i < b; i++) sum += a;
+        return sum;
+    }
+ 
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 2; i <= n; i++) {
+            int temp = 0;
+            for (int j = 0; j < i; j++) temp += fact;
+            fact = temp;
+        }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        int n = 5; 
+        System.out.println(factorial(n));
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 2:
+
+import java.util.Scanner;
+
+public class Maximumones {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(), m = sc.nextInt();
+        int maxCount = 0, index = -1;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < m; j++) {
+                int val = sc.nextInt();
+                if (val == 1) count++;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                index = i;
+            }
+        }
+        System.out.println(maxCount == 0 ? -1 : index);
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 3:
+
+import java.util.Scanner;
+
+public class CharOccurrences {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine(), str2 = sc.nextLine();
+        int count = 0;
+        for (char c : str2.toCharArray())
+            for (char ch : str1.toCharArray())
+                if (ch == c) count++;
+        System.out.println(count);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 4:
+
+import java.util.Scanner;
+
+public class GoodNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(), sum = 0, temp = n;
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        System.out.println(n % sum == 0 ? "Good number" : "Bad number");
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 5:
+
+import java.util.Scanner;
+
+public class VehicleCount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        while (T-- > 0) {
+            int v = sc.nextInt(), w = sc.nextInt();
+            if (w < 2 * v || w > 4 * v || w % 2 != 0) {
+                System.out.println(-1);
+            } else {
+                int four = (w - 2 * v) / 2;
+                int two = v - four;
+                System.out.println(two + " " + four);
+            }
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 6:
+
+
+import java.util.Arrays;
+
+public class MoveZerosToEnd {
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0};
+	int j = 0;
+	for(int i = 0; i <arr.length; i++){
+		if(arr[i] != 0){
+			int temp = arr[i];
+			arr[i]=arr[j];
+			arr[j] = temp;
+			j++;
+		}
+	}
+	for(int i = 0; i<arr.length; i++){
+	System.out.print(arr[i] + " ");
+	}
+	}
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 7:
+
+import java.util.*;
+
+public class FirstNonRepeating {
+    public static void main(String[] args) {
+        int[] arr = {-1, 2, -1, 3, 0}; 
+        for (int i = 0; i < arr.length; i++) {
+            boolean found = true;
+            for (int j = 0; j < arr.length; j++) {
+                if (i != j && arr[i] == arr[j]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                System.out.println(arr[i]);
+                return;
+            }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 8:
+
+import java.util.*;
+
+public class Leftrotation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int d = sc.nextInt();
+        for (int i = 0; i < d; i++) {
+            int first = arr[0];
+            for (int j = 0; j < arr.length - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[arr.length - 1] = first;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 9:
+
+public class Equilibrium {
+    public static void main(String[] args) {
+        int[] arr = {-7, 1, 5, 2, -4, 3, 0};
+        int total = 0, left = 0;
+        for (int num : arr) total += num;
+        for (int i = 0; i < arr.length; i++) {
+            total -= arr[i];
+            if (left == total) {
+                System.out.println(i);
+                return;
+            }
+            left += arr[i];
+        }
+        System.out.println(-1);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 10:
+
+public class RightRotate {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 7, 9};
+        int k = 2, n = arr.length;
+        k = k % n;
+        int[] result = new int[n];
+        for (int i = 0; i < n; i++)
+            result[(i + k) % n] = arr[i];
+        for (int i = 0; i < n; i++)
+            System.out.print(result[(n - k + i) % n] + " ");
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 11:
+
+public class Subsetcheck {
+    public static void main(String[] args) {
+        int[] a = {11, 1, 13, 21, 3, 7}, b = {11, 3, 7, 1};
+        boolean isSubset = true;
+
+        for (int i = 0; i < b.length; i++) {
+            boolean found = false;
+            for (int j = 0; j < a.length; j++) {
+                if (a[j] == b[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                isSubset = false;
+                break;
+            }
+        }
+
+        System.out.println(isSubset);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 12:
+
+public class Symmetricpairs {
+    public static void main(String[] args) {
+        int[][] arr = {{11, 20}, {30, 40}, {5, 10}, {40, 30}, {10, 5}};
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i][0] == arr[j][1] && arr[i][1] == arr[j][0]) {
+                    System.out.println("(" + arr[i][0] + ", " + arr[i][1] + ")");
+                }
+            }
+        }
+    }
+}
+
+
