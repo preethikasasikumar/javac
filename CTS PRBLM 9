@@ -1,0 +1,19 @@
+import java.util.Scanner;
+class IncrementCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        float salary = sc.nextFloat();
+        float rating = sc.nextFloat();
+
+        if (salary <= 0 || rating < 1 || rating > 5) {
+            System.out.println("Invalid Input");
+            return;
+        }
+
+        if (rating <= 3) salary *= 1.10;
+        else if (rating <= 4) salary *= 1.25;
+        else salary *= 1.30;
+
+        System.out.printf("%.0f\n", salary);
+    }
+}
