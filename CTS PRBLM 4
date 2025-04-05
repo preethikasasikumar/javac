@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class HighestPlacement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cse, ece, mech;
+        System.out.print("Enter the no of students placed in CSE:");
+        cse = sc.nextInt();
+        System.out.print("Enter the no of students placed in ECE:");
+        ece = sc.nextInt();
+        System.out.print("Enter the no of students placed in MECH:");
+        mech = sc.nextInt();
+
+        if (cse < 0 || ece < 0 || mech < 0) {
+            System.out.println("Input is Invalid");
+            return;
+        }
+
+        if (cse == ece && ece == mech) {
+            System.out.println("None of the department has got the highest placement");
+        } else {
+            int max = Math.max(cse, Math.max(ece, mech));
+            System.out.println("Highest placement");
+            if (cse == max) System.out.println("CSE");
+            if (ece == max) System.out.println("ECE");
+            if (mech == max) System.out.println("MECH");
+        }
+    }
+}
