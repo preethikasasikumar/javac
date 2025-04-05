@@ -1,0 +1,13 @@
+import java.util.Scanner;
+class public octaladdition{
+	public static void main(String []args){
+	Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first octal number: ");
+        int octal1 = scanner.nextInt(8);
+        System.out.print("Enter second octal number: ");
+        int octal2 = scanner.nextInt(8);
+        int sum = octal1 + octal2;
+        System.out.println("Sum in octal: " + Integer.toOctalString(sum));
+        scanner.close();
+}
+}
