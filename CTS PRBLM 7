@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class PrimeRange {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        if (a > b || a <= 0 || b <= 0 || (b - a) <= 0) {
+            System.out.println("Provide valid input");
+            return;
+        }
+
+        for (int i = a; i <= b; i++) {
+            int j = 2;
+            boolean isPrime = true;
+            if (i < 2) continue;
+            while (j <= i / 2) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+                j++;
+            }
+            if (isPrime) System.out.print(i + " ");
+        }
+    }
+}
