@@ -1,0 +1,229 @@
+PROBLEM 1
+import java.util.Scanner;
+public class Countdifference {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int star = 0, hash = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '*') star++;
+            else if (s.charAt(i) == '#') hash++;
+        }
+        int difference = star - hash;
+        System.out.println(difference);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+PROBLEM 2
+
+import java.util.Scanner;
+public class Greaterelements {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int count = 1, max = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                count++;
+                max = arr[i];
+            }
+        }
+        System.out.println(count);
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 3
+
+import java.util.Scanner;
+public class Maxrowwithones {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt();
+        int c = sc.nextInt();
+        int[][] mat = new int[r][c];
+        for (int i = 0; i < r; i++)
+            for (int j = 0; j < c; j++)
+                mat[i][j] = sc.nextInt();
+
+        int maxCount = 0, rowIndex = 0;
+        for (int i = 0; i < r; i++) {
+            int count = 0;
+            for (int j = 0; j < c; j++) {
+                if (mat[i][j] == 1) count++;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                rowIndex = i + 1;
+            }
+        }
+        System.out.println(rowIndex);
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 4
+
+import java.util.Scanner;
+public class Maxguests {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int[] e = new int[t];
+        int[] l = new int[t];
+        for (int i = 0; i < t; i++) e[i] = sc.nextInt();
+        for (int i = 0; i < t; i++) l[i] = sc.nextInt();
+
+        int guests = 0, maxGuests = 0;
+        for (int i = 0; i < t; i++) {
+            guests = guests + e[i] - l[i];
+            if (guests > maxGuests) maxGuests = guests;
+        }
+        System.out.println(maxGuests);
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 5
+
+import java.util.Scanner;
+public class Oddballoon {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        char[] b = new char[n];
+        for (int i = 0; i < n; i++) b[i] = sc.next().charAt(0);
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (b[i] == b[j]) count++;
+            }
+            if (count % 2 != 0) {
+                System.out.println(b[i]);
+                return;
+            }
+        }
+        System.out.println("All are even");
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 6
+
+import java.util.Scanner;
+public class Candyjar {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = 10;
+        int k = 5;
+        int M = N;
+        int input = sc.nextInt();
+        if (input <= 0 || input > M) {
+            System.out.println("INVALID INPUT");
+        } else {
+            M -= input;
+            if (M <= k) M = N;
+            System.out.println("NUMBER OF CANDIES SOLD : " + input);
+            System.out.println("NUMBER OF CANDIES LEFT : " + M);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 7
+
+import java.util.*;
+
+public class Trainee {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int total = sc.nextInt();
+        int[] arr = new int[total];
+        
+        for(int i = 0; i < total; i++) 
+            arr[i] = sc.nextInt();
+        
+        int sum = 0;
+        for(int i = 0; i < total; i++) 
+            sum += arr[i];
+        
+        int avg = sum / arr.length;
+        
+        for(int i = 0; i < total; i++) {
+            if(arr[i] > avg) 
+                System.out.println("trainee number " + (i + 1));
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 8
+
+import java.util.Scanner;
+public class Washingmachine {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int weight = sc.nextInt();
+        if (weight < 0 || weight > 7000) {
+            System.out.println("INVALID INPUT");
+        } else if (weight == 0) {
+            System.out.println("Time Estimated: 0 minutes");
+        } else if (weight <= 2000) {
+            System.out.println("Time Estimated: 25 minutes");
+        } else if (weight <= 4000) {
+            System.out.println("Time Estimated: 35 minutes");
+        } else if (weight <= 7000) {
+            System.out.println("Time Estimated: 45 minutes");
+        } else {
+            System.out.println("OVERLOADED");
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 9
+import java.util.Scanner;
+public class Caesarcipher {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String text = sc.nextLine();
+        int key = sc.nextInt();
+        if (key < 0 || key > 25) {
+            System.out.println("INVALID INPUT");
+            return;
+        }
+        StringBuilder encrypted = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                ch = (char) ((ch - base + key) % 26 + base);
+            } else if (Character.isDigit(ch)) {
+                ch = (char) ((ch - '0' + key) % 10 + '0');
+            }
+            encrypted.append(ch);
+        }
+        System.out.println("The encrypted Text is: " + encrypted.toString());
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+PROBLEM 10
+
+import java.util.Scanner;
+public class Paintingcost {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int interior = sc.nextInt();
+        int exterior = sc.nextInt();
+        double total = 0;
+        for (int i = 0; i < interior; i++) total += sc.nextDouble() * 18;
+        for (int i = 0; i < exterior; i++) total += sc.nextDouble() * 12;
+        System.out.println("Total estimated Cost : " + total + " INR");
+    }
+}
+
+
+
