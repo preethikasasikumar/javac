@@ -1,0 +1,23 @@
+class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num < 0) {
+            System.out.println("Invalid Input");
+            return;
+        }
+
+        int rev = 0, temp = num;
+        while (temp > 0) {
+            int d = temp % 10;
+            rev = rev * 10 + d;
+            temp /= 10;
+        }
+
+        if (num == rev) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a Palindrome");
+        }
+    }
+}
