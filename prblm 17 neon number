@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+class neon {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        int square = num * num, sum = 0;
+        while (square > 0) {
+            sum += square % 10;
+            square /= 10;
+}
+        System.out.println(sum == num);
+        scanner.close();
+}
+}
