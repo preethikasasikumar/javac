@@ -11,7 +11,7 @@ while (a.length()>b.length()){
 int carry=0;
 String result="";
 for(int i=a.length()-1;i>=0;i--){
-int digit1;
+int digit1; 
 int digit2;
 digit1=a.charAt(i)-'0';
 digit2=b.charAt(i)-'0';
